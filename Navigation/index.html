@@ -1,9 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Testing Grounds</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="./js/main.js"></script>
+  <title>Fancy Navigation</title>
   <style>
     * {
       margin:0px;
@@ -17,6 +15,26 @@
     }
   </style>
   <link rel="stylesheet" href='./css/main.css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+    $(function(){
+      var $creeper = $('nav>span');
+      $creeper.moveTo = function($target) {
+        $creeper.stop().animate({
+          width:'+='+($target.innerWidth()-$creeper.width())+'px',
+          left:'+='+($target.position().left-$creeper.position().left)+'px'
+        });
+      };
+      $creeper.reset = function() {
+        $creeper.stop().animate({ width:'0px', left:'0px' });
+      }
+      $('#links>a').hover(
+        function(e){ $creeper.moveTo($(e.target)); },
+        function(e){ $creeper.reset(); }
+      );
+    });
+  </script>
 </head>
 <body>
   <nav>

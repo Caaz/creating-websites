@@ -9,9 +9,10 @@ nav {
     nav > #links > a {
       text-decoration: none;
       color: #FFF;
-      padding: 10px;
+      padding: 5px 10px;
       cursor: pointer; }
   nav > span {
+    position: relative;
     height: 2px;
     width: 0px;
     background-color: #FFF; }
