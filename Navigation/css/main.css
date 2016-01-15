@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-bottom-style: solid; }
+  nav > #links {
+    display: flex; }
+    nav > #links > a {
+      text-decoration: none;
+      color: #FFF;
+      padding: 10px;
+      cursor: pointer; }
+  nav > span {
+    height: 2px;
+    width: 0px;
+    background-color: #FFF; }

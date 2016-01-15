@@ -1,0 +1,3 @@
+# Let's ignore my sass bullshit, It compiles into the css that's actually needed anyway.
+*/.sass-cache/*
+*/scss/*
