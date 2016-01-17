@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>Keyboard</title>
+  <link rel="stylesheet" href='./css/main.css'>
+  <style> span { font-size: 2em; position: fixed; } </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+    $(function(){
+      var $body = $('body');
+      $body.on('keypress', function(e){
+        var $key = $('<span>');
+        $key.text(e.key.toUpperCase());
+        $key.css({ left:Math.floor(Math.random()*100)+'vw' });
+        $key.animate({ bottom:'+='+Math.floor(20+Math.random()*100)+'vh' }, 1000, function(){
+          $(this).animate({ bottom:'-2em' }, 1000, function(){ this.parentNode.removeChild(this); })
+        });
+        $body.append($key);
+      });
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
