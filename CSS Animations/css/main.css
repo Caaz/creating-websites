@@ -1,0 +1,36 @@
+.example {
+  width: 200px;
+  height: 200px; }
+
+@keyframes drip {
+  0% {
+    border-color: rgba(255, 255, 255, 0);
+    height: 0px;
+    width: 0px; }
+  10% {
+    border-color: white; }
+  100% {
+    border-color: rgba(255, 255, 255, 0);
+    height: 90%;
+    width: 90%; } }
+#drip {
+  background-color: #ab61eb;
+  position: relative; }
+  #drip > div {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%; }
+    #drip > div > div {
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in;
+      animation-duration: 5s;
+      animation-name: drip;
+      border-style: solid;
+      border-radius: 50%;
+      border-width: 4px;
+      border-color: rgba(255, 255, 255, 0); }
+  #drip > div:last-of-type > div {
+    animation-delay: 2.5s; }
