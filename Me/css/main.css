@@ -1,0 +1,38 @@
+* {
+  font-family: sans-serif !important; }
+
+h1 {
+  font-weight: 100;
+  font-variant: small-caps; }
+
+header {
+  padding: 10px;
+  display: flex;
+  background-color: #5a00aa;
+  color: #FFF; }
+  header > h1 {
+    flex-grow: 1; }
+  header > nav {
+    align-self: center; }
+
+section {
+  text-align: center; }
+
+.dim {
+  opacity: .7; }
+
+nav > a {
+  color: #FFF;
+  margin: 0px 10px;
+  padding: 2px 5px;
+  font-weight: 300;
+  text-decoration: none;
+  border: 1px solid transparent; }
+  nav > a:hover {
+    border-color: #CCC; }
+
+#whoAmI {
+  color: #000; }
+
+a, a:hover, a:active, a:focus {
+  outline: transparent !important; }
