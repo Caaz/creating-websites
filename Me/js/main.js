@@ -52,4 +52,21 @@ $(function(){
   //   var children = $(this).children();
   //   $(children[0]).typeText('v',function() { $(children[1]).typeText('os'); });
   // },function(){ $(this).children().eraseText(); });
+  var $nav = $('nav');
+  var originalNav = $nav.offset().top;
+  $(window).scroll(function(e) {
+    var scroll = $(window).scrollTop();
+    console.log($nav.css('position'));
+    if(($nav.css('position') == 'static') && (scroll > originalNav)) {
+      $nav.css({position:'fixed',top:'0px',left:'0px'});
+    }
+    else if(($nav.css('position') == 'fixed') && (scroll <= originalNav)) {
+      $nav.css({position:'static'});
+    }
+    // if()
+    // console.log(scroll);
+    // var height = $(window).height();
+    // var at = Math.floor(scroll/height);
+    // if(at != viewing) { viewing = at; updateNav(); }
+  });
 });

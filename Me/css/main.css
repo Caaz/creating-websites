@@ -9,31 +9,35 @@ h1 {
   font-variant: small-caps; }
 
 body {
-  display: flex; }
+  display: flex;
+  background-image: url("../res/background01.jpg");
+  background-size: cover;
+  background-repeat: none; }
 
 #sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #141414;
-  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
   width: 150px; }
   #sidebar h1 {
     align-self: center;
     color: #FFF;
     font-size: 1.1em; }
   #sidebar img {
+    padding-top: 15px;
     align-self: center;
-    padding: 20px;
     width: 80%;
     border-radius: 50%; }
 
 nav {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 150px;
+  padding-top: 15px; }
   nav a {
     position: relative;
     color: white; }
-    nav a:hover span:first-child {
+    nav a:hover span:first-child, nav a .selected span:first-child {
       width: 100%; }
     nav a span:first-child {
       display: inline-block;
@@ -48,10 +52,17 @@ nav {
       margin-left: 10px; }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-grow: 1; }
+  main * {
+    color: #FFF; }
   main > section {
     display: flex;
     flex-direction: column;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.7);
     height: 100vh; }
     main > section > h1 {
       align-self: center; }
