@@ -44,10 +44,12 @@ $(function(){
   );
 
   // Fancy header shit.
-  var $name = $('header > h1');
-  $name.children().text('');
-  $name.hover(function(){
-    var children = $(this).children();
-    $(children[0]).typeText('v',function() { $(children[1]).typeText('os'); });
-  },function(){ $(this).children().eraseText(); });
+  var $name = $('#name');
+  $name.children().hide();
+  $name.hover(function(){ $(this).children().show(); },function(){ $(this).children().hide(); });
+  // $name.children().text('');
+  // $name.hover(function(){
+  //   var children = $(this).children();
+  //   $(children[0]).typeText('v',function() { $(children[1]).typeText('os'); });
+  // },function(){ $(this).children().eraseText(); });
 });
