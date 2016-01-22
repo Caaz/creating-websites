@@ -11,8 +11,7 @@ $.fn.typeText = function(text,callback) {
 $.fn.eraseText = function(callback) {
   var hasMore = false;
   this.each(function(e,t){
-    var text = t.textContent;
-    t.textContent = t.textContent.substr(0,text.length-1);
+    t.textContent = t.textContent.substr(0,t.textContent.length-1);
     if(t.textContent.length) hasMore = true;
   });
   if(hasMore) { var $self = this; setTimeout(function() { $self.eraseText(callback); }, 100); }
@@ -40,33 +39,23 @@ $(function(){
     // Where we're actually placing the what I am text.
     $('#iAmA'),
     // List of things I am. (Self proclaimed, of course) Maybe I'll move this to some ajax call or something.
-    ['Web Developer','Slacker','Hacker','Perl Pro','Programmer','Wizard','Level 70 Mohawk Night Elf','Pokemon Trainer','Professional?','Hobbyist','Psuedo-RNG Empathizer','Procrastinator','Electro-Swing Fan', 'Bonefide Badass']
+    ['Web Developer','Slacker','Hacker','Perl Pro','Programmer','Wizard','Level 70 Mohawk Night Elf','Pokemon Trainer','Professional?','Hobbyist','Psuedo-RNG Empathizer','Procrastinator','Bonefide Badass']
   );
 
   // Fancy header shit.
   var $name = $('#name');
   $name.children().hide();
   $name.hover(function(){ $(this).children().show(); },function(){ $(this).children().hide(); });
-  // $name.children().text('');
-  // $name.hover(function(){
-  //   var children = $(this).children();
-  //   $(children[0]).typeText('v',function() { $(children[1]).typeText('os'); });
-  // },function(){ $(this).children().eraseText(); });
+
+  // Make navigation stick to the top when we scroll down
   var $nav = $('nav');
+  // Grab our original offset, we need this.
   var originalNav = $nav.offset().top;
   $(window).scroll(function(e) {
     var scroll = $(window).scrollTop();
-    console.log($nav.css('position'));
-    if(($nav.css('position') == 'static') && (scroll > originalNav)) {
-      $nav.css({position:'fixed',top:'0px',left:'0px'});
-    }
-    else if(($nav.css('position') == 'fixed') && (scroll <= originalNav)) {
-      $nav.css({position:'static'});
-    }
-    // if()
-    // console.log(scroll);
-    // var height = $(window).height();
-    // var at = Math.floor(scroll/height);
-    // if(at != viewing) { viewing = at; updateNav(); }
+    // On initial position, if the scroll position passes the nav's position, then fix it.
+    if(($nav.css('position') == 'static') && (scroll > originalNav)) $nav.css({position:'fixed',top:'0px',left:'0px'});
+    // Once we scroll back up, place the navigation back where it belongs.
+    else if(($nav.css('position') == 'fixed') && (scroll <= originalNav)) $nav.css({position:'static'});
   });
 });
