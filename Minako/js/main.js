@@ -4,13 +4,16 @@
 // });
 
 // Set up function
-$.fn.minako = function(combo, callback) {
+$.fn.minako = function(combo, callback, debug) {
   // Your history of keypresses on the target
   var history = [];
   // On a keypress
   this.keypress(function(e){
     // add the key to the history.
-    history.push(e.key);
+    history.push( (e.keyCode)?e.keyCode:e.charCode );
+    // If debug, let's also output our history.
+    if(debug) console.log(history);
+
     // Check if the combo has been done correctly.
     if(function(){
       for(var i = 0; i<combo.length; i++)
